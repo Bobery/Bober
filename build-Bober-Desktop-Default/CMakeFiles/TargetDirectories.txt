@@ -1,0 +1,3 @@
+/home/bobery/development/Bober/build-Bober-Desktop-Default/CMakeFiles/rebuild_cache.dir
+/home/bobery/development/Bober/build-Bober-Desktop-Default/CMakeFiles/Bober.dir
+/home/bobery/development/Bober/build-Bober-Desktop-Default/CMakeFiles/edit_cache.dir
