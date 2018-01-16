@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 2.8)
-PROJECT(Tests)
+PROJECT(SolutionTests)
 
 add_definitions("-std=c++14")
 
-add_subdirectory(gmock)
+set(PROJECT_DIR ../../)
 
 AUX_SOURCE_DIRECTORY("${PROJECT_SOURCE_DIR}" Sources)
 

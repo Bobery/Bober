@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/bobery/development/Bober/Bober/solution/include/Adrian.hpp
+
+/home/bobery/development/Bober/Bober/solution/test/AdrianTestSuite.cpp
+gmock/gmock.h
+-
+gtest/gtest.h
+-
+../include/Adrian.hpp
+/home/bobery/development/Bober/Bober/solution/include/Adrian.hpp
+

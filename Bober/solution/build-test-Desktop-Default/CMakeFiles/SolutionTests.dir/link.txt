@@ -1,0 +1,1 @@
+/usr/bin/g++    -rdynamic CMakeFiles/SolutionTests.dir/AdrianTestSuite.cpp.o  -o SolutionTests -lgmock -lgmock_main -lsolution -lpthread 

@@ -1,6 +1,6 @@
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
-#include "../solution/Adrian.hpp"
+#include "../include/Adrian.hpp"
 
 struct TestSuite : public ::testing::Test
 {
