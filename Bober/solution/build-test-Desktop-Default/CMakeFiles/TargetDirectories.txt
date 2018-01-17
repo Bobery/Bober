@@ -1,3 +1,0 @@
-/home/bobery/development/Bober/Bober/solution/build-test-Desktop-Default/CMakeFiles/rebuild_cache.dir
-/home/bobery/development/Bober/Bober/solution/build-test-Desktop-Default/CMakeFiles/SolutionTests.dir
-/home/bobery/development/Bober/Bober/solution/build-test-Desktop-Default/CMakeFiles/edit_cache.dir
