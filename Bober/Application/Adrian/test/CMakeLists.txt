@@ -8,7 +8,9 @@ ENABLE_TESTING()
 
 AUX_SOURCE_DIRECTORY("${PROJECT_SOURCE_DIR}" Sources)
 
-ADD_EXECUTABLE("${PROJECT_NAME}" ${Sources})
+FILE (GLOB MOCK_LIST mocks/*.hpp)
+
+ADD_EXECUTABLE("${PROJECT_NAME}" ${Sources} ${MOCK_LIST})
 
 IF (NOT (TARGET gmock AND TARGET gmock_main))
     MESSAGE(FATAL_ERROR "gmock and gmock_main targets NOT found")

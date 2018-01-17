@@ -1,10 +1,9 @@
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
-#include "../include/Adrian.hpp"
+#include "Adrian.hpp"
 
 struct TestSuite : public ::testing::Test
 {
-
 };
 
 TEST_F(TestSuite, AdrianNieRObiNic)
