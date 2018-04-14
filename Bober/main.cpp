@@ -1,33 +1,33 @@
-#include <iostream>
-#include <sstream>
 #include <vector>
+#include <memory>
+#include <iostream>
+#include "GodRandomizerFactory.hpp"
+#include "IGodRandomizer.hpp"
+
+using namespace GodRandomizer;
 
 int main()
 {
-    std::string l_configInput;
-    std::getline(std::cin, l_configInput);
+    GodRandomizerFactory l_godRandomizerProvider;
 
-    std::vector<std::string> l_configInputs;
-    std::string l_token;
-    std::stringstream l_stream(l_configInput);
+    std::unique_ptr<IGodRandomizer> l_godRandomizer;
 
-    while(l_stream >> l_token)
-        l_configInputs.push_back(l_token);
-
-    int l_divisibleCounter = 0;
-
-    int l_numberOfElements = std::stoi(l_configInputs[0]);
-    int l_divisor = std::stoi(l_configInputs[1]);
-    int l_number;
-
-    for(int i = 0; i < l_numberOfElements; i++)
+    try
     {
-        std::cin >> l_number;
-        if(l_number%l_divisor == 0)
-            ++l_divisibleCounter;
+        l_godRandomizer = l_godRandomizerProvider.createGodRandomizer(NumberOfPlayers::Five);
+    }
+    catch (std::exception& e)
+    {
+        std::cout << "Invalid number of players: " << e.what() << std::endl;
+        return 0;
     }
 
-    std::cout << l_divisibleCounter;
+    auto l_godsSetting = l_godRandomizer->randomizeGods();
+
+    for (auto l_god : l_godsSetting)
+    {
+        std::cout << l_god << std::endl;
+    }
 
     return 0;
 }
