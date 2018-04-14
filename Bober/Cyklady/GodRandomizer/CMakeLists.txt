@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 2.8)
 
-project(Adrian)
+project(GodRandomizer)
 
 add_definitions("-std=c++14 -Ofast")
 
-set(LIBRARY_NAME Adrian)
+set(LIBRARY_NAME GodRandomizer)
 set(SOURCE_DIR source)
 set(INCLUDE_DIR include)
 

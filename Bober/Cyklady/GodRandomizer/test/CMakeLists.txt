@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
 
-PROJECT(AdrianTests)
+PROJECT(GodRandomizerTests)
 
 ADD_DEFINITIONS("-std=c++14")
 

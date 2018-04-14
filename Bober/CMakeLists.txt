@@ -5,8 +5,8 @@ project(Bober)
 add_definitions("-std=c++14 -Ofast")
 
 # INPUT LIBRARIES NAMES #
-set(LIBRARIES Adrian)
-set(LIBRARIES_DIR Application)
+set(LIBRARIES GodRandomizer)
+set(LIBRARIES_DIR Cyklady)
 
 # GTEST #
 ENABLE_TESTING()
