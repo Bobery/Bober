@@ -1,29 +1,35 @@
 #pragma once
+#include <random>
 #include "IGodRandomizer.hpp"
 
 namespace GodRandomizer
 {
-
-class FivePlayersRandomizer : public IGodRandomizer
+class RandomizerBase : public IGodRandomizer
 {
 public:
-    FivePlayersRandomizer();
-    std::vector<God> randomizeGods() override;
-private:
+    RandomizerBase();
+    virtual ~RandomizerBase() {}
+protected:
     std::vector<God> m_lastGodsSetting;
+    std::random_device m_random;
+    std::mt19937 m_seed;
 };
 
-class FourPlayersRandomizer : public IGodRandomizer
+class FivePlayersRandomizer : public RandomizerBase
 {
 public:
-    FourPlayersRandomizer();
     std::vector<God> randomizeGods() override;
-private:
-    std::vector<God> m_lastGodsSetting;
-    God m_lastUnavailableGod;
 };
 
-class ThreePlayersRandomizer : public IGodRandomizer
+class FourPlayersRandomizer : public RandomizerBase
+{
+public:
+    std::vector<God> randomizeGods() override;
+private:
+    God m_lastUnavailableGod = God::Empty;
+};
+
+class ThreePlayersRandomizer : public RandomizerBase
 {
 public:
     std::vector<God> randomizeGods() override;

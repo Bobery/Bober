@@ -12,36 +12,27 @@ const std::vector<God> c_gods { God::Aphrodite,
                                 God::Poseidon,
                                 God::Zeus };
 
-FivePlayersRandomizer::FivePlayersRandomizer() :
-    m_lastGodsSetting(c_gods)
+RandomizerBase::RandomizerBase() :
+    m_lastGodsSetting(c_gods),
+    m_random(),
+    m_seed(m_random())
 {}
 
 std::vector<God> FivePlayersRandomizer::randomizeGods()
 {
-    std::random_device l_rd;
-    std::mt19937 l_gen(l_rd());
-
-    std::shuffle(m_lastGodsSetting.begin(), m_lastGodsSetting.end(), l_gen);
+    std::shuffle(m_lastGodsSetting.begin(), m_lastGodsSetting.end(), m_seed);
 
     return m_lastGodsSetting;
 }
 
-FourPlayersRandomizer::FourPlayersRandomizer() :
-    m_lastGodsSetting(c_gods),
-    m_lastUnavailableGod(God::Empty)
-{}
-
 std::vector<God> FourPlayersRandomizer::randomizeGods()
 {
-    std::random_device l_rd;
-    std::mt19937 l_gen(l_rd());
-
     auto l_lastUsedIt = (m_lastUnavailableGod != God::Empty) ? m_lastGodsSetting.end() - 1
                                                              : m_lastGodsSetting.end();
 
     std::vector<God> l_newGodsSetting(m_lastGodsSetting.begin(), l_lastUsedIt);
 
-    std::shuffle(l_newGodsSetting.begin(), l_newGodsSetting.end(), l_gen);
+    std::shuffle(l_newGodsSetting.begin(), l_newGodsSetting.end(), m_seed);
 
     auto l_newUnavailableGodIt = l_newGodsSetting.end() - 1;
     auto l_newUnavailableGod = *l_newUnavailableGodIt;
@@ -51,7 +42,7 @@ std::vector<God> FourPlayersRandomizer::randomizeGods()
     if (m_lastUnavailableGod != God::Empty)
     {
         l_newGodsSetting.push_back(m_lastUnavailableGod);
-        std::shuffle(l_newGodsSetting.begin(), l_newGodsSetting.end(), l_gen);
+        std::shuffle(l_newGodsSetting.begin(), l_newGodsSetting.end(), m_seed);
     }
 
     l_newGodsSetting.push_back(God::Empty);
