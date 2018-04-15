@@ -17,7 +17,8 @@ enum class God
     Aphrodite,
     Ares,
     Poseidon,
-    Zeus
+    Zeus,
+    Empty
 };
 
 inline std::ostream& operator <<(std::ostream& os, God p_godToPrint)
@@ -33,7 +34,7 @@ inline std::ostream& operator <<(std::ostream& os, God p_godToPrint)
     case God::Zeus:
         return os << "Zeus";
     default:
-        return os << "Uknkown god";
+        return os << "Empty";
     }
 }
 

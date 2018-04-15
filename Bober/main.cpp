@@ -14,7 +14,7 @@ int main()
 
     try
     {
-        l_godRandomizer = l_godRandomizerProvider.createGodRandomizer(NumberOfPlayers::Five);
+        l_godRandomizer = l_godRandomizerProvider.createGodRandomizer(NumberOfPlayers::Four);
     }
     catch (std::exception& e)
     {
@@ -22,12 +22,20 @@ int main()
         return 0;
     }
 
-    auto l_godsSetting = l_godRandomizer->randomizeGods();
+    std::vector<God> l_godsSetting;
 
-    for (auto l_god : l_godsSetting)
+    for (int i = 0; i < 10; ++i)
     {
-        std::cout << l_god << std::endl;
+        l_godsSetting = l_godRandomizer->randomizeGods();
+
+        for (auto l_god : l_godsSetting)
+        {
+            std::cout << l_god << std::endl;
+        }
+
+        std::cout << std::endl;
     }
+
 
     return 0;
 }
