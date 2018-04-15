@@ -1,10 +1,12 @@
 #pragma once
 
 #include <memory>
-#include "GodRandomizer.hpp"
+#include "Types.hpp"
 
 namespace GodRandomizer
 {
+
+class IGodRandomizer;
 
 class GodRandomizerFactory
 {

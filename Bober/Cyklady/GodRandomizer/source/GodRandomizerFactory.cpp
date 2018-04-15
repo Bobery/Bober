@@ -1,4 +1,5 @@
 #include "GodRandomizerFactory.hpp"
+#include "GodRandomizer.hpp"
 
 namespace GodRandomizer
 {

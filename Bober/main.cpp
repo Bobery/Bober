@@ -14,6 +14,7 @@ int main()
     {
         auto l_godRandomizer = l_godRandomizerProvider.createGodRandomizer(NumberOfPlayers::Four);
 
+        //FOR TESTING PURPOSES RANDOMIZE 10 times for four players
         for (int i = 0; i < 10; ++i)
         {
             auto l_godsSetting = l_godRandomizer->randomizeGods();
