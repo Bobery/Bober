@@ -36,32 +36,27 @@ std::vector<God> FourPlayersRandomizer::randomizeGods()
     std::random_device l_rd;
     std::mt19937 l_gen(l_rd());
 
+    auto l_lastUsedIt = (m_lastUnavailableGod != God::Empty) ? m_lastGodsSetting.end() - 1
+                                                             : m_lastGodsSetting.end();
+
+    std::vector<God> l_newGodsSetting(m_lastGodsSetting.begin(), l_lastUsedIt);
+
+    std::shuffle(l_newGodsSetting.begin(), l_newGodsSetting.end(), l_gen);
+
+    auto l_newUnavailableGodIt = l_newGodsSetting.end() - 1;
+    auto l_newUnavailableGod = *l_newUnavailableGodIt;
+
+    l_newGodsSetting.erase(l_newUnavailableGodIt);
+
     if (m_lastUnavailableGod != God::Empty)
     {
-        std::vector<God> l_newGodsSetting(m_lastGodsSetting.begin(), m_lastGodsSetting.end() - 1);
-        std::shuffle(l_newGodsSetting.begin(), l_newGodsSetting.end(), l_gen);
-
-        auto l_newUnavailableGodIt = l_newGodsSetting.end() - 1;
-        auto l_newUnavailableGod = *l_newUnavailableGodIt;
-
-        l_newGodsSetting.erase(l_newUnavailableGodIt);
         l_newGodsSetting.push_back(m_lastUnavailableGod);
-
         std::shuffle(l_newGodsSetting.begin(), l_newGodsSetting.end(), l_gen);
-        l_newGodsSetting.push_back(God::Empty);
-
-        m_lastUnavailableGod = l_newUnavailableGod;
-        m_lastGodsSetting = l_newGodsSetting;
     }
-    else
-    {
-        std::shuffle(m_lastGodsSetting.begin(), m_lastGodsSetting.end(), l_gen);
 
-        auto l_newUnavailableGod = m_lastGodsSetting.end() - 1;
-
-        m_lastUnavailableGod = *l_newUnavailableGod;
-        *l_newUnavailableGod = God::Empty;
-    }
+    l_newGodsSetting.push_back(God::Empty);
+    m_lastUnavailableGod = l_newUnavailableGod;
+    m_lastGodsSetting = l_newGodsSetting;
 
     return m_lastGodsSetting;
 }

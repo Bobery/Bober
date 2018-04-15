@@ -6,10 +6,10 @@ namespace GodRandomizer
 
 enum class NumberOfPlayers
 {
-    Two,
-    Three,
+    Five,
     Four,
-    Five
+    Three,
+    Two
 };
 
 enum class God
